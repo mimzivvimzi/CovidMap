@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		692166D1248129CE0017D89D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 692166CF248129CE0017D89D /* Main.storyboard */; };
 		692166D3248129D10017D89D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 692166D2248129D10017D89D /* Assets.xcassets */; };
 		692166D6248129D10017D89D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 692166D4248129D10017D89D /* LaunchScreen.storyboard */; };
+		69F866D424812FE3007AD03C /* Prefecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F866D324812FE3007AD03C /* Prefecture.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		692166D2248129D10017D89D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		692166D5248129D10017D89D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		692166D7248129D10017D89D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69F866D324812FE3007AD03C /* Prefecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prefecture.swift; sourceTree = "<group>"; };
 		90FD9B3362533F61E8FC7DC9 /* Pods-CovidMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidMap.debug.xcconfig"; path = "Target Support Files/Pods-CovidMap/Pods-CovidMap.debug.xcconfig"; sourceTree = "<group>"; };
 		B6B97C9A432C6F1B6EAE83CA /* Pods_CovidMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC38554B61A82275816A1846 /* Pods-CovidMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidMap.release.xcconfig"; path = "Target Support Files/Pods-CovidMap/Pods-CovidMap.release.xcconfig"; sourceTree = "<group>"; };
@@ -48,7 +50,6 @@
 				90FD9B3362533F61E8FC7DC9 /* Pods-CovidMap.debug.xcconfig */,
 				EC38554B61A82275816A1846 /* Pods-CovidMap.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -75,13 +76,38 @@
 			children = (
 				692166C9248129CE0017D89D /* AppDelegate.swift */,
 				692166CB248129CE0017D89D /* SceneDelegate.swift */,
-				692166CD248129CE0017D89D /* ViewController.swift */,
-				692166CF248129CE0017D89D /* Main.storyboard */,
+				69F866D624812FF6007AD03C /* Controller */,
+				69F866D524812FE9007AD03C /* Model */,
+				69F866D724812FFC007AD03C /* View */,
 				692166D2248129D10017D89D /* Assets.xcassets */,
 				692166D4248129D10017D89D /* LaunchScreen.storyboard */,
 				692166D7248129D10017D89D /* Info.plist */,
 			);
 			path = CovidMap;
+			sourceTree = "<group>";
+		};
+		69F866D524812FE9007AD03C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				69F866D324812FE3007AD03C /* Prefecture.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		69F866D624812FF6007AD03C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				692166CD248129CE0017D89D /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		69F866D724812FFC007AD03C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				692166CF248129CE0017D89D /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		FA1FEB5B06DB56546C272AA5 /* Frameworks */ = {
@@ -207,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69F866D424812FE3007AD03C /* Prefecture.swift in Sources */,
 				692166CE248129CE0017D89D /* ViewController.swift in Sources */,
 				692166CA248129CE0017D89D /* AppDelegate.swift in Sources */,
 				692166CC248129CE0017D89D /* SceneDelegate.swift in Sources */,
