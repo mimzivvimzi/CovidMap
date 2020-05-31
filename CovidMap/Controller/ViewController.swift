@@ -9,10 +9,14 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import CoreLocation
 
 class ViewController: UIViewController {
     
     var prefectureArray = [Prefecture]()
+    
+    let locationManager = CLLocationManager()
+    var location: CLLocation?
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -14,6 +14,16 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gex-W5-Lbh">
+                                <rect key="frame" x="170" y="408" width="74" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Go To Map"/>
+                                <connections>
+                                    <segue destination="Z57-2f-NKU" kind="presentation" identifier="GoToMap" id="AST-oU-ajl"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -21,6 +31,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139" y="118"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="Eqm-yX-rif">
+            <objects>
+                <viewController id="Z57-2f-NKU" customClass="MapViewController" customModule="CovidMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mcp-2O-M6f">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="BUj-4Z-8o6">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="puE-iq-Bo8">
+                                <rect key="frame" x="20" y="758" width="39" height="30"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="close:" destination="Z57-2f-NKU" eventType="touchUpInside" id="xYP-J7-JHW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="BUj-4Z-8o6" firstAttribute="top" secondItem="mcp-2O-M6f" secondAttribute="top" id="4cV-pc-ybf"/>
+                            <constraint firstItem="LhJ-i4-I9f" firstAttribute="bottom" secondItem="BUj-4Z-8o6" secondAttribute="bottom" id="9j2-WS-7YR"/>
+                            <constraint firstItem="puE-iq-Bo8" firstAttribute="leading" secondItem="LhJ-i4-I9f" secondAttribute="leading" constant="20" id="EZQ-aE-62r"/>
+                            <constraint firstItem="BUj-4Z-8o6" firstAttribute="leading" secondItem="LhJ-i4-I9f" secondAttribute="leading" id="gXQ-1m-Cxi"/>
+                            <constraint firstItem="LhJ-i4-I9f" firstAttribute="trailing" secondItem="BUj-4Z-8o6" secondAttribute="trailing" id="n3c-yX-KC9"/>
+                            <constraint firstItem="LhJ-i4-I9f" firstAttribute="bottom" secondItem="puE-iq-Bo8" secondAttribute="bottom" constant="20" id="tay-3S-K9J"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LhJ-i4-I9f"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="BUj-4Z-8o6" id="J5v-ch-O30"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Vr-IF-EYq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="898.55072463768124" y="117.85714285714285"/>
         </scene>
     </scenes>
 </document>

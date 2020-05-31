@@ -14,6 +14,8 @@
 		692166D1248129CE0017D89D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 692166CF248129CE0017D89D /* Main.storyboard */; };
 		692166D3248129D10017D89D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 692166D2248129D10017D89D /* Assets.xcassets */; };
 		692166D6248129D10017D89D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 692166D4248129D10017D89D /* LaunchScreen.storyboard */; };
+		696AE8292483EFEF005E9E85 /* PrefecturePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696AE8282483EFEF005E9E85 /* PrefecturePin.swift */; };
+		696AE82B2483F08D005E9E85 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696AE82A2483F08D005E9E85 /* MapViewController.swift */; };
 		69F866D424812FE3007AD03C /* Prefecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F866D324812FE3007AD03C /* Prefecture.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +28,8 @@
 		692166D2248129D10017D89D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		692166D5248129D10017D89D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		692166D7248129D10017D89D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		696AE8282483EFEF005E9E85 /* PrefecturePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefecturePin.swift; sourceTree = "<group>"; };
+		696AE82A2483F08D005E9E85 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		69F866D324812FE3007AD03C /* Prefecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prefecture.swift; sourceTree = "<group>"; };
 		90FD9B3362533F61E8FC7DC9 /* Pods-CovidMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidMap.debug.xcconfig"; path = "Target Support Files/Pods-CovidMap/Pods-CovidMap.debug.xcconfig"; sourceTree = "<group>"; };
 		B6B97C9A432C6F1B6EAE83CA /* Pods_CovidMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				69F866D324812FE3007AD03C /* Prefecture.swift */,
+				696AE8282483EFEF005E9E85 /* PrefecturePin.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -98,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				692166CD248129CE0017D89D /* ViewController.swift */,
+				696AE82A2483F08D005E9E85 /* MapViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -234,9 +240,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				69F866D424812FE3007AD03C /* Prefecture.swift in Sources */,
+				696AE82B2483F08D005E9E85 /* MapViewController.swift in Sources */,
 				692166CE248129CE0017D89D /* ViewController.swift in Sources */,
 				692166CA248129CE0017D89D /* AppDelegate.swift in Sources */,
 				692166CC248129CE0017D89D /* SceneDelegate.swift in Sources */,
+				696AE8292483EFEF005E9E85 /* PrefecturePin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
