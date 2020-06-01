@@ -48,7 +48,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="BUj-4Z-8o6">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUj-4Z-8o6">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="puE-iq-Bo8">
@@ -67,6 +67,7 @@
                             <constraint firstItem="BUj-4Z-8o6" firstAttribute="leading" secondItem="LhJ-i4-I9f" secondAttribute="leading" id="gXQ-1m-Cxi"/>
                             <constraint firstItem="LhJ-i4-I9f" firstAttribute="trailing" secondItem="BUj-4Z-8o6" secondAttribute="trailing" id="n3c-yX-KC9"/>
                             <constraint firstItem="LhJ-i4-I9f" firstAttribute="bottom" secondItem="puE-iq-Bo8" secondAttribute="bottom" constant="20" id="tay-3S-K9J"/>
+                            <constraint firstItem="LhJ-i4-I9f" firstAttribute="trailing" secondItem="puE-iq-Bo8" secondAttribute="trailing" constant="355" id="u9a-68-QK0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LhJ-i4-I9f"/>
                     </view>

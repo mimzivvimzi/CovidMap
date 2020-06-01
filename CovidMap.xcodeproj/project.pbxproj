@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		664749FBB920AF3A21E79B35 /* Pods_CovidMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B97C9A432C6F1B6EAE83CA /* Pods_CovidMap.framework */; };
+		690C14A224840AA500AF4587 /* TestLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 690C14A124840AA500AF4587 /* TestLocation.gpx */; };
 		692166CA248129CE0017D89D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692166C9248129CE0017D89D /* AppDelegate.swift */; };
 		692166CC248129CE0017D89D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692166CB248129CE0017D89D /* SceneDelegate.swift */; };
 		692166CE248129CE0017D89D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692166CD248129CE0017D89D /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		690C14A124840AA500AF4587 /* TestLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestLocation.gpx; sourceTree = "<group>"; };
 		692166C6248129CE0017D89D /* CovidMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CovidMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		692166C9248129CE0017D89D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		692166CB248129CE0017D89D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				692166D2248129D10017D89D /* Assets.xcassets */,
 				692166D4248129D10017D89D /* LaunchScreen.storyboard */,
 				692166D7248129D10017D89D /* Info.plist */,
+				690C14A124840AA500AF4587 /* TestLocation.gpx */,
 			);
 			path = CovidMap;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 			files = (
 				692166D6248129D10017D89D /* LaunchScreen.storyboard in Resources */,
 				692166D3248129D10017D89D /* Assets.xcassets in Resources */,
+				690C14A224840AA500AF4587 /* TestLocation.gpx in Resources */,
 				692166D1248129CE0017D89D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

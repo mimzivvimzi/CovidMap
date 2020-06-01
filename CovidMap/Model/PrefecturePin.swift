@@ -13,12 +13,14 @@ import MapKit
 class PrefecturePin: NSObject {
     let name: String
     let location: CLLocation
+    let cases: String
     
-    init(name: String, latitude: Double, longitude: Double) {
+    init(name: String, latitude: Double, longitude: Double, cases: String) {
         self.name = name
         self.location = CLLocation(latitude: latitude, longitude: longitude)
+        self.cases = cases
     }
-    
+
 }
 
 extension PrefecturePin: MKAnnotation {
@@ -31,6 +33,11 @@ extension PrefecturePin: MKAnnotation {
     var title: String? {
         get {
             return name
+        }
+    }
+    var subtitle: String? {
+        get {
+            return cases
         }
     }
 }

@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
     
     var prefectureArray = [Prefecture]()
     var prefecturePinArray = [PrefecturePin]()
@@ -21,29 +21,31 @@ class ViewController: UIViewController {
     var lat: CLLocationDegrees?
     var lng: CLLocationDegrees?
     var updatingLocation = false
+    var lastLocationError: Error?
     var timer: Timer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         makeAPICall()
-        makePrefecturePins()
     }
     
     @IBAction func getCurrentLocation(_ sender: UIButton) {
         let authStatus = CLLocationManager.authorizationStatus()
             if authStatus == .notDetermined {
-              locationManager.requestWhenInUseAuthorization()
-              return
+                locationManager.requestWhenInUseAuthorization()
+                return
             }
             if authStatus == .denied || authStatus == .restricted {
-              print("denied")
-              return
+                showLocationServicesDeniedAlert()
+                return
             }
+
             if updatingLocation {
-              stopLocationManager()
+                stopLocationManager()
             } else {
-              location = nil
-              startLocationManager()
+                location = nil
+                lastLocationError = nil
+                startLocationManager()
             }
     }
     
@@ -59,34 +61,66 @@ class ViewController: UIViewController {
                     print(self.prefectureArray.count)
                 }
                 for i in 0..<self.prefectureArray.count {
-                    let newPrefecture = PrefecturePin(name: self.prefectureArray[i].name, latitude: self.prefectureArray[i].lat, longitude: self.prefectureArray[i].lng)
+                    let newPrefecture = PrefecturePin(name: self.prefectureArray[i].name, latitude: self.prefectureArray[i].lat, longitude: self.prefectureArray[i].lng, cases: self.prefectureArray[i].cases)
                     print("name is \(newPrefecture.name) lat is \(newPrefecture.location.coordinate.latitude) lng is \(newPrefecture.location.coordinate.longitude) \n")
                     self.prefecturePinArray.append(newPrefecture)
                     print(self.prefecturePinArray.count)
                 }
+                print("***********\(self.prefecturePinArray[0].location.coordinate)")
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
     }
     
-    func makePrefecturePins() {
-        for i in 0..<prefectureArray.count {
-            let newPrefecture = PrefecturePin(name: prefectureArray[i].name, latitude: prefectureArray[i].lat, longitude: prefectureArray[i].lng)
-            print("name is \(newPrefecture.name) lat is \(newPrefecture.location.coordinate.latitude) lng is \(newPrefecture.location.coordinate.longitude) \n")
-            prefecturePinArray.append(newPrefecture)
-            print(prefecturePinArray.count)
-        }
-    }
+//    func makePrefecturePins() {
+//        for i in 0..<prefectureArray.count {
+//            let newPrefecture = PrefecturePin(name: prefectureArray[i].name, latitude: prefectureArray[i].lat, longitude: prefectureArray[i].lng)
+//            print("name is \(newPrefecture.name) lat is \(newPrefecture.location.coordinate.latitude) lng is \(newPrefecture.location.coordinate.longitude) \n")
+//            prefecturePinArray.append(newPrefecture)
+//            print(prefecturePinArray.count)
+//        }
+//    }
 
-    //MARK: - Start and Stop Location Manager
+   //MARK: - CLLocationManagerDelegate
+       func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+           print("didFailWithError \(error.localizedDescription)")
+           
+           if (error as NSError).code == CLError.locationUnknown.rawValue {
+               return
+           }
+           lastLocationError = error
+           stopLocationManager()
+       }
+       
+       func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+           let newLocation = locations.last!
+           print("didUpdateLocations \(newLocation)")
+           
+           // IF IT TAKES MORE THAN 5 SECONDS
+           if newLocation.timestamp.timeIntervalSinceNow < -5 {
+               return
+           }
+           // INVALID HORIZONTAL READING
+           if newLocation.horizontalAccuracy < 0 {
+               return
+           }
+           
+           // NEW PARTS FOR FIXES
+           var distance = CLLocationDistance(Double.greatestFiniteMagnitude)
+           if let location = location {
+               distance = newLocation.distance(from: location)
+           }
+       }
+    
+    //MARK: - Start and Stop the Location Manager
     func startLocationManager() {
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
             updatingLocation = true
-            timer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(didTimeOut), userInfo: nil, repeats: false)
+            timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(didTimeOut), userInfo: nil, repeats: false)
         }
     }
     
@@ -102,32 +136,64 @@ class ViewController: UIViewController {
     }
     
     @objc func didTimeOut() {
-        print("---------------Time out")
+        print("*** Time out")
         if location == nil {
             stopLocationManager()
-        }
-    }
-}
-
-extension ViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let lastLocation = locations.last!
-
-        if lastLocation.horizontalAccuracy < 0 {
-            return
-        }
-        if location == nil || location!.horizontalAccuracy > lastLocation.horizontalAccuracy {
-            location = lastLocation
-            stopLocationManager()
+            lastLocationError = NSError(domain: "ErrorDomain", code: 1, userInfo: nil)
         }
     }
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("didFailWithError \(error.localizedDescription)")
-        
-        if (error as NSError).code == CLError.locationUnknown.rawValue {
-            return
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "MapSegue" {
+            guard let destination = segue.destination as? MapViewController else { return }
+            destination.place = prefecturePinArray[13]
+            destination.places = prefecturePinArray
         }
-        stopLocationManager()
+    }
+
+
+//extension ViewController: CLLocationManagerDelegate {
+//
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        let newLocation = locations.last!
+//            print("didUpdateLocations \(newLocation)")
+//
+//            // IF IT TAKES MORE THAN 5 SECONDS
+//            if newLocation.timestamp.timeIntervalSinceNow < -5 {
+//                return
+//            }
+//            // INVALID HORIZONTAL READING
+//            if newLocation.horizontalAccuracy < 0 {
+//                return
+//            }
+//
+//            // NEW PARTS FOR FIXES
+//            var distance = CLLocationDistance(Double.greatestFiniteMagnitude)
+//            if let currentLocation = currentLocation {
+//                distance = newLocation.distance(from: currentLocation)
+//            } else if distance > 1 {
+//            let timeInterval = newLocation.timestamp.timeIntervalSince(currentLocation!.timestamp)
+//            if timeInterval > 10 {
+//                print("*** Force done!")
+//                stopLocationManager()
+//            }
+//        }
+//    }
+//
+//    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+//        print("didFailWithError \(error.localizedDescription)")
+//
+//        if (error as NSError).code == CLError.locationUnknown.rawValue {
+//            return
+//        }
+//        stopLocationManager()
+//    }
+//
+    //MARK: - Helper Methods
+    func showLocationServicesDeniedAlert() {
+        let alert = UIAlertController(title: "Location Serices Disabled", message: "Please enable location services for this app in Settings", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
     }
 }
