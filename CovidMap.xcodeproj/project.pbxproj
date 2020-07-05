@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		664749FBB920AF3A21E79B35 /* Pods_CovidMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B97C9A432C6F1B6EAE83CA /* Pods_CovidMap.framework */; };
+		69022DB824B20BFC0027435E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69022DB724B20BFC0027435E /* TableViewCell.swift */; };
 		690C14A224840AA500AF4587 /* TestLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 690C14A124840AA500AF4587 /* TestLocation.gpx */; };
 		692166CA248129CE0017D89D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692166C9248129CE0017D89D /* AppDelegate.swift */; };
 		692166CC248129CE0017D89D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692166CB248129CE0017D89D /* SceneDelegate.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		69022DB724B20BFC0027435E /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		690C14A124840AA500AF4587 /* TestLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestLocation.gpx; sourceTree = "<group>"; };
 		692166C6248129CE0017D89D /* CovidMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CovidMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		692166C9248129CE0017D89D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				692166CD248129CE0017D89D /* ViewController.swift */,
+				69022DB724B20BFC0027435E /* TableViewCell.swift */,
 				696AE82A2483F08D005E9E85 /* MapViewController.swift */,
 			);
 			path = Controller;
@@ -248,6 +251,7 @@
 				692166CE248129CE0017D89D /* ViewController.swift in Sources */,
 				692166CA248129CE0017D89D /* AppDelegate.swift in Sources */,
 				692166CC248129CE0017D89D /* SceneDelegate.swift in Sources */,
+				69022DB824B20BFC0027435E /* TableViewCell.swift in Sources */,
 				696AE8292483EFEF005E9E85 /* PrefecturePin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

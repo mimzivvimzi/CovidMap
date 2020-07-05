@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 import CoreLocation
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UITableViewController, CLLocationManagerDelegate {
     
     var prefectureArray = [Prefecture]()
     var prefecturePinArray = [PrefecturePin]()
@@ -23,7 +23,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var updatingLocation = false
     var lastLocationError: Error?
     var timer: Timer?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         makeAPICall()
@@ -67,6 +67,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     print(self.prefecturePinArray.count)
                 }
                 print("***********\(self.prefecturePinArray[0].location.coordinate)")
+                self.tableView.reloadData()
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -195,5 +196,30 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
+    }
+}
+
+extension ViewController {
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return prefectureArray.count
+    }
+
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+        
+        cell.prefectureLabel.text = prefectureArray[indexPath.row].name
+        cell.casesLabel.text = "Cases: \(prefectureArray[indexPath.row].cases)"
+        cell.deathsLabel.text = "Deaths: \(prefectureArray[indexPath.row].deaths)"
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(120)
     }
 }
