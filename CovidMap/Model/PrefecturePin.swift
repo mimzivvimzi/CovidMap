@@ -14,11 +14,13 @@ class PrefecturePin: NSObject {
     let name: String
     let location: CLLocation
     let cases: String
+    let deaths: String
     
-    init(name: String, latitude: Double, longitude: Double, cases: String) {
+    init(name: String, latitude: Double, longitude: Double, cases: String, deaths: String) {
         self.name = name
         self.location = CLLocation(latitude: latitude, longitude: longitude)
         self.cases = cases
+        self.deaths = deaths
     }
 
 }
@@ -32,12 +34,13 @@ extension PrefecturePin: MKAnnotation {
     
     var title: String? {
         get {
-            return name
+            return "\(name) \n Cases: \(cases)"
         }
     }
     var subtitle: String? {
         get {
-            return cases
+            return "Deaths: \(deaths)"
+        
         }
     }
 }

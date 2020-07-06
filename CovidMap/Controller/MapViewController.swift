@@ -23,15 +23,13 @@ class MapViewController: UIViewController {
     var prefecturePinArray = [PrefecturePin]()
     
     var testLocation: CLLocationCoordinate2D?
-    
-    @IBAction func close(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         makeAPICall()
         mapView.delegate = self
+        self.title = "COVID-19 Map by Prefecture"
     }
     
     func makeAPICall() {
@@ -46,13 +44,13 @@ class MapViewController: UIViewController {
                     print(self.prefectureArray.count)
                 }
                 for i in 0..<self.prefectureArray.count {
-                    let newPrefecture = PrefecturePin(name: self.prefectureArray[i].name, latitude: self.prefectureArray[i].lat, longitude: self.prefectureArray[i].lng, cases: self.prefectureArray[i].cases)
+                    let newPrefecture = PrefecturePin(name: self.prefectureArray[i].name, latitude: self.prefectureArray[i].lat, longitude: self.prefectureArray[i].lng, cases: self.prefectureArray[i].cases, deaths: self.prefectureArray[i].deaths)
                     print("name is \(newPrefecture.name) lat is \(newPrefecture.location.coordinate.latitude) lng is \(newPrefecture.location.coordinate.longitude) \n")
                     self.prefecturePinArray.append(newPrefecture)
                     print(self.prefecturePinArray.count)
                 }
                 self.testLocation = self.prefecturePinArray[12].location.coordinate
-                let regionRadius: CLLocationDistance = 1000.0
+                let regionRadius: CLLocationDistance = 200000.0
                 let region = MKCoordinateRegion(center: self.testLocation!, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
                 self.mapView.setRegion(region, animated: true)
                 self.mapView.addAnnotations(self.prefecturePinArray)

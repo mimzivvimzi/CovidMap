@@ -26,27 +26,28 @@ class ViewController: UITableViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "COVID-19 Data by Prefecture"
         makeAPICall()
     }
     
     @IBAction func getCurrentLocation(_ sender: UIButton) {
         let authStatus = CLLocationManager.authorizationStatus()
-            if authStatus == .notDetermined {
-                locationManager.requestWhenInUseAuthorization()
-                return
-            }
-            if authStatus == .denied || authStatus == .restricted {
-                showLocationServicesDeniedAlert()
-                return
-            }
+        if authStatus == .notDetermined {
+            locationManager.requestWhenInUseAuthorization()
+            return
+        }
+        if authStatus == .denied || authStatus == .restricted {
+            showLocationServicesDeniedAlert()
+            return
+        }
 
-            if updatingLocation {
-                stopLocationManager()
-            } else {
-                location = nil
-                lastLocationError = nil
-                startLocationManager()
-            }
+        if updatingLocation {
+            stopLocationManager()
+        } else {
+            location = nil
+            lastLocationError = nil
+            startLocationManager()
+        }
     }
     
     func makeAPICall() {
@@ -61,7 +62,7 @@ class ViewController: UITableViewController, CLLocationManagerDelegate {
                     print(self.prefectureArray.count)
                 }
                 for i in 0..<self.prefectureArray.count {
-                    let newPrefecture = PrefecturePin(name: self.prefectureArray[i].name, latitude: self.prefectureArray[i].lat, longitude: self.prefectureArray[i].lng, cases: self.prefectureArray[i].cases)
+                    let newPrefecture = PrefecturePin(name: self.prefectureArray[i].name, latitude: self.prefectureArray[i].lat, longitude: self.prefectureArray[i].lng, cases: self.prefectureArray[i].cases, deaths: self.prefectureArray[i].deaths)
                     print("name is \(newPrefecture.name) lat is \(newPrefecture.location.coordinate.latitude) lng is \(newPrefecture.location.coordinate.longitude) \n")
                     self.prefecturePinArray.append(newPrefecture)
                     print(self.prefecturePinArray.count)
