@@ -104,11 +104,21 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUj-4Z-8o6">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QI4-Wk-2u1">
+                                <rect key="frame" x="363" y="798" width="21" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" image="location" catalog="system"/>
+                                <connections>
+                                    <action selector="getCurrentLocation:" destination="Z57-2f-NKU" eventType="touchUpInside" id="HO8-ne-d0E"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="BUj-4Z-8o6" firstAttribute="top" secondItem="mcp-2O-M6f" secondAttribute="top" id="4cV-pc-ybf"/>
                             <constraint firstItem="LhJ-i4-I9f" firstAttribute="bottom" secondItem="BUj-4Z-8o6" secondAttribute="bottom" id="9j2-WS-7YR"/>
+                            <constraint firstItem="LhJ-i4-I9f" firstAttribute="bottom" secondItem="QI4-Wk-2u1" secondAttribute="bottom" constant="30" id="Cay-dt-spM"/>
+                            <constraint firstItem="LhJ-i4-I9f" firstAttribute="trailing" secondItem="QI4-Wk-2u1" secondAttribute="trailing" constant="30" id="afY-22-w98"/>
                             <constraint firstItem="BUj-4Z-8o6" firstAttribute="leading" secondItem="LhJ-i4-I9f" secondAttribute="leading" id="gXQ-1m-Cxi"/>
                             <constraint firstItem="LhJ-i4-I9f" firstAttribute="trailing" secondItem="BUj-4Z-8o6" secondAttribute="trailing" id="n3c-yX-KC9"/>
                         </constraints>
@@ -116,6 +126,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="6AD-ih-4ST"/>
                     <connections>
+                        <outlet property="currentLocationButton" destination="QI4-Wk-2u1" id="YHj-cC-Aw2"/>
+                        <outlet property="map" destination="BUj-4Z-8o6" id="uBv-c5-wcM"/>
                         <outlet property="mapView" destination="BUj-4Z-8o6" id="J5v-ch-O30"/>
                     </connections>
                 </viewController>
@@ -144,6 +156,7 @@
     </scenes>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
+        <image name="location" catalog="system" width="128" height="115"/>
         <image name="map" catalog="system" width="128" height="113"/>
     </resources>
 </document>
