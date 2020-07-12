@@ -23,10 +23,15 @@ class ViewController: UITableViewController, CLLocationManagerDelegate {
     var updatingLocation = false
     var lastLocationError: Error?
     var timer: Timer?
+    @IBOutlet weak var refreshButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "COVID-19 Data by Prefecture"
+        makeAPICall()
+    }
+
+    @IBAction func refreshButtonPressed(_ sender: UIBarButtonItem) {
         makeAPICall()
     }
     

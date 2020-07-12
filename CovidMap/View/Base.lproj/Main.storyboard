@@ -74,12 +74,20 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="ALk-OR-jzn">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrow.clockwise" catalog="system" id="1YY-Tg-L9r">
+                            <connections>
+                                <action selector="refreshButtonPressed:" destination="i00-sC-Mwl" id="jNt-55-dz4"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Map View" image="map" catalog="system" id="HoP-Vs-nIC">
                             <connections>
                                 <segue destination="Z57-2f-NKU" kind="show" identifier="MapSegue" id="Pk2-yq-NwF"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="refreshButton" destination="1YY-Tg-L9r" id="NXI-cN-GkO"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Jt-gS-Qi2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -135,6 +143,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="map" catalog="system" width="128" height="113"/>
     </resources>
 </document>
