@@ -82,7 +82,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                     self.prefecturePinArray.append(newPrefecture)
                     print(self.prefecturePinArray.count)
                 }
-                self.testLocation = self.prefecturePinArray[1].location.coordinate
+                self.testLocation = self.prefecturePinArray[12].location.coordinate
                 let regionRadius: CLLocationDistance = 200000.0
                 let region = MKCoordinateRegion(center: self.testLocation!, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
                 self.mapView.setRegion(region, animated: true)

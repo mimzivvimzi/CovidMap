@@ -18,6 +18,7 @@
 		692166D6248129D10017D89D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 692166D4248129D10017D89D /* LaunchScreen.storyboard */; };
 		696AE8292483EFEF005E9E85 /* PrefecturePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696AE8282483EFEF005E9E85 /* PrefecturePin.swift */; };
 		696AE82B2483F08D005E9E85 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696AE82A2483F08D005E9E85 /* MapViewController.swift */; };
+		699E2ED524BCA6930069B110 /* CovidMap.gif in Resources */ = {isa = PBXBuildFile; fileRef = 699E2ED424BCA6930069B110 /* CovidMap.gif */; };
 		69F866D424812FE3007AD03C /* Prefecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F866D324812FE3007AD03C /* Prefecture.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,8 @@
 		692166D7248129D10017D89D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		696AE8282483EFEF005E9E85 /* PrefecturePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefecturePin.swift; sourceTree = "<group>"; };
 		696AE82A2483F08D005E9E85 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		699E2ED324BCA6700069B110 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		699E2ED424BCA6930069B110 /* CovidMap.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = CovidMap.gif; sourceTree = "<group>"; };
 		69F866D324812FE3007AD03C /* Prefecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prefecture.swift; sourceTree = "<group>"; };
 		90FD9B3362533F61E8FC7DC9 /* Pods-CovidMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidMap.debug.xcconfig"; path = "Target Support Files/Pods-CovidMap/Pods-CovidMap.debug.xcconfig"; sourceTree = "<group>"; };
 		B6B97C9A432C6F1B6EAE83CA /* Pods_CovidMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +67,8 @@
 		692166BD248129CE0017D89D = {
 			isa = PBXGroup;
 			children = (
+				699E2ED324BCA6700069B110 /* README.md */,
+				699E2ED424BCA6930069B110 /* CovidMap.gif */,
 				692166C8248129CE0017D89D /* CovidMap */,
 				692166C7248129CE0017D89D /* Products */,
 				18FEECAC6FC52C057484215F /* Pods */,
@@ -194,6 +199,7 @@
 				692166D3248129D10017D89D /* Assets.xcassets in Resources */,
 				690C14A224840AA500AF4587 /* TestLocation.gpx in Resources */,
 				692166D1248129CE0017D89D /* Main.storyboard in Resources */,
+				699E2ED524BCA6930069B110 /* CovidMap.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
