@@ -21,6 +21,7 @@
 		699E2ED924BCA7910069B110 /* 1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 699E2ED624BCA7900069B110 /* 1.gif */; };
 		699E2EDA24BCA7910069B110 /* 2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 699E2ED724BCA7900069B110 /* 2.gif */; };
 		699E2EDB24BCA7910069B110 /* 3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 699E2ED824BCA7900069B110 /* 3.gif */; };
+		699E2EDF24BDEDD00069B110 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 699E2EDE24BDEDD00069B110 /* LICENSE */; };
 		69F866D424812FE3007AD03C /* Prefecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F866D324812FE3007AD03C /* Prefecture.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		699E2ED624BCA7900069B110 /* 1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 1.gif; sourceTree = "<group>"; };
 		699E2ED724BCA7900069B110 /* 2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 2.gif; sourceTree = "<group>"; };
 		699E2ED824BCA7900069B110 /* 3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 3.gif; sourceTree = "<group>"; };
+		699E2EDE24BDEDD00069B110 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		69F866D324812FE3007AD03C /* Prefecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prefecture.swift; sourceTree = "<group>"; };
 		90FD9B3362533F61E8FC7DC9 /* Pods-CovidMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidMap.debug.xcconfig"; path = "Target Support Files/Pods-CovidMap/Pods-CovidMap.debug.xcconfig"; sourceTree = "<group>"; };
 		B6B97C9A432C6F1B6EAE83CA /* Pods_CovidMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				699E2ED324BCA6700069B110 /* README.md */,
+				699E2EDE24BDEDD00069B110 /* LICENSE */,
 				699E2ED624BCA7900069B110 /* 1.gif */,
 				699E2ED724BCA7900069B110 /* 2.gif */,
 				699E2ED824BCA7900069B110 /* 3.gif */,
@@ -203,6 +206,7 @@
 			files = (
 				692166D6248129D10017D89D /* LaunchScreen.storyboard in Resources */,
 				692166D3248129D10017D89D /* Assets.xcassets in Resources */,
+				699E2EDF24BDEDD00069B110 /* LICENSE in Resources */,
 				690C14A224840AA500AF4587 /* TestLocation.gpx in Resources */,
 				699E2EDB24BCA7910069B110 /* 3.gif in Resources */,
 				699E2EDA24BCA7910069B110 /* 2.gif in Resources */,
